@@ -1,8 +1,21 @@
 'use client';
 
-import TopBar from '@/src/components/TopBar';
-import SideBar from '@/src/components/SideBar';
-import ContractPage from '@/src/_pages_backup/contracts';
+import dynamic from 'next/dynamic';
+
+const TopBar = dynamic(() => import('@/src/components/TopBar'), {
+  ssr: false,
+  loading: () => <div className="h-24"></div>,
+});
+
+const SideBar = dynamic(() => import('@/src/components/SideBar'), {
+  ssr: false,
+  loading: () => <div className="w-28"></div>,
+});
+
+const ContractPage = dynamic(() => import('@/src/_pages_backup/contracts'), {
+  ssr: false,
+  loading: () => <div>Loading...</div>,
+});
 
 const fields = [
   { name: 'اسم العقار', dataType: 'text', value: 'برج النور' },
@@ -31,14 +44,16 @@ const navs = {
 
 export default function ContractsPage() {
   return (
-    <div className="relative bg-gray-50 min-h-screen pt-[94px]">
-      <TopBar />
-      <div className="relative flex">
-        <SideBar />
-        <main className="flex-1 p-6 mr-28 min-h-[calc(100vh-94px)]">
-          <ContractPage fields={fields} navs={navs.contracts} pageTitle="العقود" />
-        </main>
+    
+      <div className="relative bg-gray-50 min-h-screen pt-[94px]">
+        <TopBar />
+        <div className="relative flex">
+          <SideBar />
+          <main className="flex-1 p-6 mr-28 min-h-[calc(100vh-94px)]">
+            <ContractPage fields={fields} navs={navs.contracts} pageTitle="العقود" />
+          </main>
+        </div>
       </div>
-    </div>
+    
   );
 }

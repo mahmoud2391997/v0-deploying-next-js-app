@@ -1,13 +1,8 @@
 'use client';
-export const dynamic = 'force-dynamic';
 
-import dynamic from 'next/dynamic';
 import TopBar from '@/src/components/TopBar';
 import SideBar from '@/src/components/SideBar';
-
-const TenantsPage = dynamic(() => import('@/src/_pages_backup/tenants'), {
-  ssr: false,
-});
+import TenantsPage from '@/src/_pages_backup/tenants';
 
 export default function TenantsListPage() {
   return (

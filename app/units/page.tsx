@@ -1,13 +1,8 @@
 'use client';
-export const dynamic = 'force-dynamic';
 
-import dynamic from 'next/dynamic';
 import TopBar from '@/src/components/TopBar';
 import SideBar from '@/src/components/SideBar';
-
-const UnitsPage = dynamic(() => import('@/src/_pages_backup/units'), {
-  ssr: false,
-});
+import UnitsPage from '@/src/_pages_backup/units';
 
 export default function UnitsListPage() {
   return (

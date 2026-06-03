@@ -1,13 +1,8 @@
 'use client';
-export const dynamic = 'force-dynamic';
 
-import dynamic from 'next/dynamic';
 import TopBar from '@/src/components/TopBar';
 import SideBar from '@/src/components/SideBar';
-
-const OwnersPage = dynamic(() => import('@/src/_pages_backup/owners/index'), {
-  ssr: false,
-});
+import OwnersPage from '@/src/_pages_backup/owners/index';
 
 export default function OwnersListPage() {
   return (

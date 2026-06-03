@@ -13,9 +13,6 @@ const nextConfig = {
     maxInactiveAge: 24 * 60 * 1000,
     pagesBufferLength: 1,
   },
-  experimental: {
-    isrMemoryCacheSize: 0,
-  },
 }
 
 export default nextConfig

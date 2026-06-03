@@ -33,6 +33,7 @@
     "@kepler.gl/utils": "^3.0.0",
     "@mui/icons-material": "^6.4.8",
     "@mui/material": "^6.4.8",
+    "@netlify/plugin-nextjs": "^5.15.11",
     "@react-three/drei": "^9.116.1",
     "@react-three/fiber": "^8.17.10",
     "@reduxjs/toolkit": "^2.6.1",

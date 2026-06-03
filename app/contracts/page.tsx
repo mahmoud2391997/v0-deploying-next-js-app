@@ -1,14 +1,8 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import TopBar from '@/src/components/TopBar';
 import SideBar from '@/src/components/SideBar';
-
-export const dynamic = 'force-dynamic';
-
-const ContractPage = dynamic(() => import('@/src/_pages_backup/contracts'), {
-  ssr: false,
-});
+import ContractPage from '@/src/_pages_backup/contracts';
 
 const fields = [
   { name: 'اسم العقار', dataType: 'text', value: 'برج النور' },

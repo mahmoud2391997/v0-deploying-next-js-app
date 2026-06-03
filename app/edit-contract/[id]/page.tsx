@@ -1,13 +1,8 @@
 'use client';
-export const dynamic = 'force-dynamic';
 
-import dynamic from 'next/dynamic';
 import TopBar from '@/src/components/TopBar';
 import SideBar from '@/src/components/SideBar';
-
-const EditContract = dynamic(() => import('@/src/_pages_backup/contracts/editSingleContract'), {
-  ssr: false,
-});
+import EditContract from '@/src/_pages_backup/contracts/editSingleContract';
 
 export default function EditContractPage({ params }: { params: { id: string } }) {
   return (

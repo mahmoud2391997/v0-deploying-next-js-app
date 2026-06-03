@@ -1,13 +1,8 @@
 'use client';
-export const dynamic = 'force-dynamic';
 
-import dynamic from 'next/dynamic';
 import TopBar from '@/src/components/TopBar';
 import SideBar from '@/src/components/SideBar';
-
-const SingleProperty = dynamic(() => import('@/src/_pages_backup/properties/singleProperty'), {
-  ssr: false,
-});
+import SingleProperty from '@/src/_pages_backup/properties/singleProperty';
 
 export default function SinglePropertyPage() {
   return (

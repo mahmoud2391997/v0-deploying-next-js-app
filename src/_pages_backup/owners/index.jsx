@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import OwnerForm from "./form";
 import TabbedDataTable from "./table";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

@@ -144,7 +144,7 @@ Entities.propTypes = {
 function DataTable({  onDelete, onView }) {
   const { contracts, formFields } = useSelector(state => state.contracts);
 console.log("Contracts:", contracts);
-const navigate = useNavigate();
+const router = useRouter();
   // Transform contract data for table display
   const tableData = contracts.map(contract => {
     const rowData = { id: contract.id };
@@ -180,14 +180,14 @@ const navigate = useNavigate();
                   <TableCell align="center">
                     <IconButton 
                       color="primary" 
-                      onClick={() => {navigate(`/contracts/${row.id}`); onView(row);}}
+                      onClick={() => {router.push(`/contracts/${row.id}`); onView(row);}}
                       aria-label="عرض"
                     >
                       <Visibility />
                     </IconButton>
                     <IconButton 
                       color="secondry" 
-                      onClick={() => {navigate(`/editContract/${row.id}`); }}
+                      onClick={() => {router.push(`/edit-contract/${row.id}`); }}
                       aria-label="حذف"
                     >
                       <Edit />
@@ -223,7 +223,7 @@ import {
   deleteContract,
   clearStatus
 } from '../../redux/slices/contractSlice';
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { Edit } from "lucide-react";
 
 export default function ContractPage({ pageTitle, navs }) {

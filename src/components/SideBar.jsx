@@ -12,12 +12,12 @@ import {
   faHouseUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function SideBar() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const navs = [
     {
@@ -85,8 +85,8 @@ export default function SideBar() {
   ];
 
   const isActive = (navLink) => {
-    if (navLink === "/") return location.pathname === "/";
-    return location.pathname.startsWith(navLink);
+    if (navLink === "/") return pathname === "/";
+    return pathname.startsWith(navLink);
   };
 
   return (
@@ -107,7 +107,7 @@ export default function SideBar() {
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              onClick={() => navigate(nav.link)}
+              onClick={() => router.push(nav.link)}
             >
               <FontAwesomeIcon
                 icon={nav.icon}
@@ -126,7 +126,7 @@ export default function SideBar() {
                       <div
                         onClick={(e) => {
                           e.stopPropagation();
-                          navigate(option.link);
+                          router.push(option.link);
                         }}
                         key={idx}
                         className="px-4 py-3 hover:bg-gradient-to-r hover:from-purple-50 hover:to-blue-50 cursor-pointer transition-all duration-150 text-right text-sm font-medium border-b border-gray-50 last:border-b-0"

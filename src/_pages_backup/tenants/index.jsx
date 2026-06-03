@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBuildingUser, faHouseUser, faPlus, faMinus, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import CardStats from "../../components/CardStats";
@@ -31,7 +31,7 @@ const tenantFormFields = [
 
 export default function TenantsPage() {
   const { type } = useParams();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [formOpen, setFormOpen] = useState(false);
   const [tenants, setTenants] = useState(mockTenants);
 
@@ -75,7 +75,7 @@ export default function TenantsPage() {
           { label: "متأخرين", value: "late" },
           { label: "الملاك", value: "owners" },
         ].map(tab => (
-          <button key={tab.value || "all"} onClick={() => navigate(tab.value ? `/tenants/${tab.value}` : "/tenants")}
+          <button key={tab.value || "all"} onClick={() => router.push(tab.value ? `/tenants/${tab.value}` : "/tenants")}
             className={`pb-2 px-4 text-sm font-medium border-b-2 transition-colors ${
               (type === tab.value || (!type && !tab.value))
                 ? "border-purple-600 text-purple-700"

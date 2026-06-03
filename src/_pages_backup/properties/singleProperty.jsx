@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'next/navigation';
 import { FaMapMarkerAlt, FaBuilding, FaHome, FaMoneyBillWave, FaFileAlt, FaCalendarAlt, FaHashtag } from 'react-icons/fa';
 import { MdMeetingRoom, MdElevator, MdLocalParking, MdSecurity, MdPool } from 'react-icons/md';
 import { GiFamilyHouse, GiCommercialAirplane } from 'react-icons/gi';

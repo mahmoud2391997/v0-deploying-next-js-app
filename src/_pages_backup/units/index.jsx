@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBuilding, faBuildingCircleCheck, faBuildingCircleExclamation, faPlus, faMinus, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import CardStats from "../../components/CardStats";
@@ -32,7 +32,7 @@ const navs = [
 
 export default function UnitsPage() {
   const { type } = useParams();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [formOpen, setFormOpen] = useState(false);
   const [units, setUnits] = useState(mockUnits);
 
@@ -81,7 +81,7 @@ export default function UnitsPage() {
           { label: "الوحدات الشاغرة", value: "vacant" },
           { label: "إضافة وحدة", value: "add" },
         ].map(tab => (
-          <button key={tab.value || "all"} onClick={() => navigate(tab.value ? `/units/${tab.value}` : "/units")}
+          <button key={tab.value || "all"} onClick={() => router.push(tab.value ? `/units/${tab.value}` : "/units")}
             className={`pb-2 px-4 text-sm font-medium border-b-2 transition-colors ${
               (type === tab.value || (!type && !tab.value))
                 ? "border-purple-600 text-purple-700"
